@@ -13,25 +13,22 @@
   body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
   }
-
-  /* HEADER */
 
   .header {
     background-color: #fff;
     border-bottom: 1px solid #ccc;
-    padding: 10px 15px 10px;
+    padding: 0px 15px 10px;
   }
 
   .follow-us {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 8px 0 5px;
     font-size: 0.9em;
     flex-wrap: wrap;
-    margin: 0 0 8px 0;
-    gap: 8px;
+    margin: 0;
   }
 
   .follow-us span {
@@ -53,29 +50,30 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    padding-top: 5px;
   }
 
   .left-section {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
   }
 
   .menu-icon {
-    font-size: 1.6em;
+    font-size: 1.5em;
     cursor: pointer;
   }
 
   .logo {
-    font-size: 1.7em;
-    font-weight: 700;
+    font-size: 1.5em;
+    font-weight: bold;
     color: #d10000;
   }
 
   .right-section {
     display: flex;
-    gap: 18px;
+    gap: 15px;
     align-items: center;
   }
 
@@ -87,11 +85,12 @@
   .search-container {
     position: relative;
     margin-top: 10px;
+    width: 100%;
   }
 
   .search-container input {
     width: 100%;
-    padding: 12px 45px;
+    padding: 10px 40px;
     border-radius: 8px;
     border: 1px solid #ccc;
     font-size: 1em;
@@ -103,19 +102,95 @@
     top: 50%;
     transform: translateY(-50%);
     color: #888;
-    font-size: 1.3em;
+    font-size: 1.2em;
     pointer-events: none;
   }
 
   .search-container .search-icon {
-    left: 14px;
+    left: 12px;
   }
 
   .search-container .camera-icon {
-    right: 14px;
+    right: 12px;
   }
 
-  /* BANNER & SLIDER */
+  .banner {
+    width: 100%;
+    margin-top: 10px;
+    padding: 0 15px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  /* Removed hiding images */
+  .banner img {
+    max-width: 350px;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    display: block; /* Show images */
+    height: auto;
+  }
+
+  .dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+
+  .dot.active {
+    background: #d10000;
+    border-color: #fff;
+  }
+
+  @media (max-width: 600px) {
+    .top-row {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .left-section, .right-section {
+      flex: none;
+    }
+
+    .logo {
+      font-size: 1.3em;
+    }
+
+    .menu-icon {
+      font-size: 1.6em;
+    }
+
+    .right-section i {
+      font-size: 1.3em;
+    }
+
+    .search-container {
+      margin-top: 8px;
+    }
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f8f8;
+  }
 
   .banner-wrapper {
     max-width: 900px;
@@ -124,13 +199,11 @@
     position: relative;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    background-color: transparent;
   }
 
   .slider {
     display: flex;
     transition: transform 0.5s ease;
-    width: 100%;
   }
 
   .banner {
@@ -173,45 +246,22 @@
     background-color: #e85b50;
   }
 
-  .banner img {
-    max-width: 350px;
-    height: auto;
-    border-radius: 0 !important;
-    display: block;
+  @media (max-width: 700px) {
+    .banner {
+      flex-direction: column;
+      padding: 30px 20px;
+    }
+    .banner-text {
+      max-width: 100%;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .banner img {
+      max-width: 250px;
+    }
   }
 
-  /* Colored backgrounds */
-
-  .blue-bg {
-    background-color: #45f8d2;
-    color: black;
-  }
-
-  .yellow-bg {
-    background-color: #fff;
-    color: black;
-  }
-
-  .banner.yellow-bg .btn {
-    background-color: #FFD700;
-    color: black;
-  }
-  .banner.yellow-bg .btn:hover {
-    background-color: #e6c200;
-    color: white;
-  }
-
-  .banner.blue-bg .btn {
-    background-color: #08ffcb;
-    color: white;
-  }
-  .banner.blue-bg .btn:hover {
-    background-color: #135ba1;
-    color: white;
-  }
-
-  /* DOTS */
-
+  /* Dots styles */
   .dots {
     position: absolute;
     bottom: 15px;
@@ -232,147 +282,33 @@
   .dot.active {
     background-color: white;
   }
-
-  /* MEDIA QUERIES */
-
-  @media (max-width: 900px) {
-    .banner-text {
-      max-width: 60%;
-    }
-
-    .banner img {
-      max-width: 250px;
-    }
-  }
-
-  @media (max-width: 700px) {
-    /* Header stacking */
-
-    .follow-us {
-      justify-content: center;
-      gap: 16px;
-    }
-
-    .top-row {
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .left-section {
-      gap: 8px;
-      flex: 1 1 auto;
-    }
-
-    .right-section {
-      gap: 15px;
-      flex: 1 1 auto;
-      justify-content: flex-end;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-    }
-
-    .menu-icon {
-      font-size: 1.5rem;
-    }
-
-    .right-section i {
-      font-size: 1.3rem;
-    }
-
-    .search-container input {
-      padding: 12px 40px;
-    }
-
-    /* Banner stack vertically */
-
-    .banner {
-      flex-direction: column;
-      padding: 30px 20px;
-      text-align: center;
-    }
-    .banner-text {
-      max-width: 100%;
-      margin-bottom: 25px;
-    }
-    .banner-text h1 {
-      font-size: 2rem;
-    }
-    .banner-text p {
-      font-size: 1rem;
-      margin-bottom: 20px;
-    }
-    .banner img {
-      max-width: 200px;
-      margin: 0 auto;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .follow-us {
-      flex-direction: column;
-      align-items: center;
-      font-size: 0.85em;
-      gap: 6px;
-    }
-
-    .top-row {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .left-section, .right-section {
-      flex: none;
-      justify-content: center;
-    }
-
-    .menu-icon {
-      font-size: 1.4rem;
-    }
-
-    .logo {
-      font-size: 1.3rem;
-    }
-
-    .right-section i {
-      font-size: 1.2rem;
-    }
-
-    .search-container input {
-      padding: 10px 38px;
-      font-size: 0.95rem;
-    }
-
-    .banner-text h1 {
-      font-size: 1.6rem;
-    }
-
-    .banner-text p {
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-    }
-
-    .btn {
-      padding: 10px 24px;
-      font-size: 1rem;
-    }
-
-    .banner img {
-      max-width: 160px;
-    }
-  }
   
-  .banner-wrapper {
-  max-width: 100% !important;
-  margin: 0 !important;
-  padding: 0 15px; /* optional, small side padding */
-  box-shadow: none; /* remove shadow if you want edge to edge */
-  border-radius: 0;
-}
+  .blue-bg {
+    background-color: #45f8d2; /* Blue background */
+  }
 
+  .yellow-bg {
+    background-color: #fff; /* Bright Yellow */
+    color: black; /* Better contrast on yellow */
+  }
+
+  .banner.yellow-bg .btn {
+    background-color: #FFD700; /* gold/yellow */
+    color: black;
+  }
+  .banner.yellow-bg .btn:hover {
+    background-color: #e6c200; /* darker yellow */
+    color: white;
+  }
+
+  .banner.blue-bg .btn {
+    background-color: #08ffcb; /* blue */
+    color: white;
+  }
+  .banner.blue-bg .btn:hover {
+    background-color: #135ba1; /* darker blue */
+    color: white;
+  }
 </style>
 </head>
 <body>
@@ -446,7 +382,9 @@
     </div>
   </div>
 
-  <div class="dots" id="dots"></div>
+  <div class="dots" id="dots">
+    <!-- Dots will be generated dynamically -->
+  </div>
 </div>
 
 <script>
@@ -456,6 +394,7 @@
   const totalSlides = banners.length;
   let currentIndex = 0;
 
+  // Set slider width dynamically
   slider.style.width = `${totalSlides * 100}%`;
   banners.forEach(banner => banner.style.flex = `0 0 ${100 / totalSlides}%`);
 
