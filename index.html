@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .header {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    padding: 0px 15px 10px;
+  }
+
+  .follow-us {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0 5px;
+    font-size: 0.9em;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+
+  .follow-us span {
+    font-weight: 500;
+    color: #333;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .social-icons a i {
+    font-size: 1em;
+  }
+
+  .top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 5px;
+  }
+
+  .left-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .menu-icon {
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+  .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #d10000;
+  }
+
+  .right-section {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .right-section i {
+    font-size: 1.4em;
+    cursor: pointer;
+  }
+
+  .search-container {
+    position: relative;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .search-container input {
+    width: 100%;
+    padding: 10px 40px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+  }
+
+  .search-container .search-icon,
+  .search-container .camera-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 1.2em;
+    pointer-events: none;
+  }
+
+  .search-container .search-icon {
+    left: 12px;
+  }
+
+  .search-container .camera-icon {
+    right: 12px;
+  }
+
+  .banner {
+    width: 100%;
+    margin-top: 10px;
+    padding: 0 15px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .banner img {
+    width: 100%;
+    height: auto;
+    display: none;
+    border-radius: 10px;
+  }
+
+  .banner img.active {
+    display: block;
+  }
+
+  .dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+
+  .dot.active {
+    background: #d10000;
+    border-color: #fff;
+  }
+
+  @media (max-width: 600px) {
+    .top-row {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .left-section, .right-section {
+      flex: none;
+    }
+
+    .logo {
+      font-size: 1.3em;
+    }
+
+    .menu-icon {
+      font-size: 1.6em;
+    }
+
+    .right-section i {
+      font-size: 1.3em;
+    }
+
+    .search-container {
+      margin-top: 8px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <!-- Follow Us Bar -->
+  <div class="follow-us">
+    <div class="social-icons">
+      <span class="follow-label">Follow Us:</span>
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" style="color: #4267B2;"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram" style="color: #C13584;"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter" style="color: #000;"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube" style="color: #FF0000;"></i></a>
+    </div>
+  </div>
+
+  <div class="top-row">
+    <div class="left-section">
+      <i class="fas fa-bars menu-icon" aria-label="Menu"></i>
+      <div class="logo">FavorSelect</div>
+    </div>
+    <div class="right-section">
+      <i class="fa-regular fa-user" aria-label="Profile"></i>
+      <i class="fa-solid fa-basket-shopping" style="color: #d10000;" aria-label="Cart"></i>
+    </div>
+  </div>
+
+  <div class="search-container">
+    <input type="text" placeholder="Search for product deals..." aria-label="Search">
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    <i class="fa-solid fa-camera camera-icon"></i>
+  </div>
+</div>
+
+<div class="banner">
+  <img src="https://favorselect.vercel.app/assets/promo-SGM7IZr8.png" alt="Promotional Product 1" class="active">
+  <img src="https://favorselect.vercel.app/assets/promo-SGM7IZr8.png" alt="Promotional Product 2">
+  <img src="https://favorselect.vercel.app/assets/promo-SGM7IZr8.png" alt="Promotional Product 3">
+
+  <div class="dots">
+    <div class="dot active" data-index="0"></div>
+    <div class="dot" data-index="1"></div>
+    <div class="dot" data-index="2"></div>
+  </div>
+</div>
+
+<script>
+  const images = document.querySelectorAll('.banner img');
+  const dots = document.querySelectorAll('.dot');
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const index = dot.getAttribute('data-index');
+      images.forEach(img => img.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      images[index].classList.add('active');
+      dot.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
