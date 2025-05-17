@@ -123,15 +123,14 @@
     overflow: hidden;
   }
 
+  /* Removed hiding images */
   .banner img {
-    width: 100%;
+    max-width: 350px;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    display: block; /* Show images */
     height: auto;
-    display: none;
-    border-radius: 10px;
-  }
-
-  .banner img.active {
-    display: block;
   }
 
   .dots {
@@ -186,6 +185,130 @@
       margin-top: 8px;
     }
   }
+  
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f8f8;
+  }
+
+  .banner-wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .banner {
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d32f2f;
+    color: white;
+    padding: 40px 60px;
+    border-radius: 12px;
+    box-sizing: border-box;
+  }
+
+  .banner-text {
+    max-width: 50%;
+  }
+  .banner-text h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+  }
+  .banner-text p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    line-height: 1.4;
+  }
+  .btn {
+    background-color: #ff6f61;
+    color: white;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn:hover {
+    background-color: #e85b50;
+  }
+
+  @media (max-width: 700px) {
+    .banner {
+      flex-direction: column;
+      padding: 30px 20px;
+    }
+    .banner-text {
+      max-width: 100%;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .banner img {
+      max-width: 250px;
+    }
+  }
+
+  /* Dots styles */
+  .dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+  .dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .dot.active {
+    background-color: white;
+  }
+  
+  .blue-bg {
+    background-color: #45f8d2; /* Blue background */
+  }
+
+  .yellow-bg {
+    background-color: #fff; /* Bright Yellow */
+    color: black; /* Better contrast on yellow */
+  }
+
+  .banner.yellow-bg .btn {
+    background-color: #FFD700; /* gold/yellow */
+    color: black;
+  }
+  .banner.yellow-bg .btn:hover {
+    background-color: #e6c200; /* darker yellow */
+    color: white;
+  }
+
+  .banner.blue-bg .btn {
+    background-color: #08ffcb; /* blue */
+    color: white;
+  }
+  .banner.blue-bg .btn:hover {
+    background-color: #135ba1; /* darker blue */
+    color: white;
+  }
 </style>
 </head>
 <body>
@@ -220,31 +343,94 @@
   </div>
 </div>
 
-<div class="banner">
-  <img src="https://favorselect.vercel.app/assets/promo-SGM7IZr8.png" alt="Promotional Product 1" class="active">
-  <img src="https://favorselect.vercel.app/assets/promo-SGM7IZr8.png" alt="Promotional Product 2">
-  <img src="https://favorselect.vercel.app/assets/promo-SGM7IZr8.png" alt="Promotional Product 3">
+<div class="banner-wrapper">
+  <div class="slider" id="slider">
+    <div class="banner">
+      <div class="banner-text">
+        <h1>May Sale</h1>
+        <p>Comfort meets fashion in every step. Grab your pair of trendsetting bags now!</p>
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+      <img src="https://i.imageupload.app/bea6008326a1b4077dda.png" alt="Bag" />
+    </div>
 
-  <div class="dots">
-    <div class="dot active" data-index="0"></div>
-    <div class="dot" data-index="1"></div>
-    <div class="dot" data-index="2"></div>
+    <div class="banner yellow-bg">
+      <div class="banner-text">
+        <h1>Summer Deals</h1>
+        <p>Brighten your style with our exclusive summer collection. Don’t miss out!</p>
+        <a href="#" class="btn">Shop Now</a>
+      </div>
+      <img src="https://i.imageupload.app/074dd2f81de2ef155ed9.png" alt="Bag 2" />
+    </div>
+
+    <div class="banner blue-bg">
+      <div class="banner-text">
+        <h1>Winter Specials</h1>
+        <p>Stay cozy and chic with our limited-time winter offers.</p>
+        <a href="#" class="btn">Explore</a>
+      </div>
+      <img src="https://i.imageupload.app/0f02ffd6d77aaaf7ba83.png" alt="Bag 3" />
+    </div>
+
+    <div class="banner">
+      <div class="banner-text">
+        <h1>Exclusive Offers</h1>
+        <p>Unlock amazing discounts only available for a short time.</p>
+        <a href="#" class="btn">Grab Now</a>
+      </div>
+      <img src="https://i.imageupload.app/bea6008326a1b4077dda.png" alt="Bag 4" />
+    </div>
+  </div>
+
+  <div class="dots" id="dots">
+    <!-- Dots will be generated dynamically -->
   </div>
 </div>
 
 <script>
-  const images = document.querySelectorAll('.banner img');
-  const dots = document.querySelectorAll('.dot');
+  const slider = document.getElementById('slider');
+  const dotsContainer = document.getElementById('dots');
+  const banners = slider.querySelectorAll('.banner');
+  const totalSlides = banners.length;
+  let currentIndex = 0;
 
-  dots.forEach(dot => {
+  // Set slider width dynamically
+  slider.style.width = `${totalSlides * 100}%`;
+  banners.forEach(banner => banner.style.flex = `0 0 ${100 / totalSlides}%`);
+
+  // Create dots dynamically
+  for(let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    if(i === 0) dot.classList.add('active');
+    dot.dataset.index = i;
+    dotsContainer.appendChild(dot);
+
     dot.addEventListener('click', () => {
-      const index = dot.getAttribute('data-index');
-      images.forEach(img => img.classList.remove('active'));
-      dots.forEach(d => d.classList.remove('active'));
-      images[index].classList.add('active');
-      dot.classList.add('active');
+      goToSlide(i);
+      resetInterval();
     });
-  });
+  }
+
+  function goToSlide(index) {
+    slider.style.transform = `translateX(-${index * (100 / totalSlides)}%)`;
+    dotsContainer.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
+    dotsContainer.querySelectorAll('.dot')[index].classList.add('active');
+    currentIndex = index;
+  }
+
+  let slideInterval = setInterval(() => {
+    const nextIndex = (currentIndex + 1) % totalSlides;
+    goToSlide(nextIndex);
+  }, 4000);
+
+  function resetInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(() => {
+      const nextIndex = (currentIndex + 1) % totalSlides;
+      goToSlide(nextIndex);
+    }, 4000);
+  }
 </script>
 
 </body>
